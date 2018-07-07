@@ -1,12 +1,14 @@
 package com.kodilla.testing.shape;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeCollector {
 
-    private Shape shape;
-    private List<Shape> figures = new ArrayList<>();
+    Shape shape;
+    List<Shape> figures = new ArrayList<>();
 
     public ShapeCollector(Shape shape) {
         this.shape = shape;
@@ -17,12 +19,13 @@ public class ShapeCollector {
     }
 
     public boolean removeFigure(Shape shape) {
-        boolean result = false;
-        if (figures.contains(shape)){
+
+        if (figures.size() > 0) {
             figures.remove(shape);
-            result = true;
+            return true;
         }
-        return result;
+
+        return false;
     }
 
     public int getFiguresQuantity(){
@@ -31,7 +34,7 @@ public class ShapeCollector {
 
     public Shape getFigure(int figureNumber) {
         Shape figure = null;
-        if(figureNumber >= 0 && figureNumber < figures.size()) {
+        if (figureNumber >= 0 && figureNumber < figures.size()) {
             figure = figures.get(figureNumber);
         }
         return figure;
@@ -39,5 +42,9 @@ public class ShapeCollector {
 
     public void showFigures() {
         System.out.println(this.shape.getShapeName());
+    }
+
+    public void countField() {
+        System.out.println(BigDecimal.valueOf(this.shape.getField()).setScale(2, RoundingMode.HALF_UP).doubleValue());
     }
 }
