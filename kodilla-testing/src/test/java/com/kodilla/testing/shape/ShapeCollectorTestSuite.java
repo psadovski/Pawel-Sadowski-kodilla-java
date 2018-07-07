@@ -99,7 +99,7 @@ public class ShapeCollectorTestSuite {
         Shape circle = new Circle(5.0);
         //When
         double actual = circle.getField();
-        double expected =78.53981633974483;
+        double expected =78.54;
         //Then
         Assert.assertEquals(expected, actual, 0.01);
     }
