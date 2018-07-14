@@ -11,11 +11,12 @@ public class MovieStoreRunner {
 
     public static void main(String[] args) {
         Map<String, List<String>> storeMap = new HashMap<>(getMovies());
+        final String SEPARATOR = " ! ";
 
-        String collect = storeMap.entrySet()
+        String collect = storeMap.values()
                 .stream()
                 .flatMap(entry -> entry.getValue().stream())
-                .collect(Collectors.joining(" ! "));
+                .collect(Collectors.joining(SEPARATOR));
 
         System.out.println(collect);
     }
