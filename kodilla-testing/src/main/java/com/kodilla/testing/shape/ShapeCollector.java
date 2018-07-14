@@ -7,12 +7,7 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    Shape shape;
     List<Shape> figures = new ArrayList<>();
-
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-    }
 
     public void addFigure(Shape shape){
         figures.add(shape);
@@ -41,10 +36,12 @@ public class ShapeCollector {
     }
 
     public void showFigures() {
-        System.out.println(this.shape.getShapeName());
+        for(Shape figure : figures) {
+            System.out.println(figure.toString());
+        }
     }
 
-    public void countField() {
-        System.out.println(BigDecimal.valueOf(this.shape.getField()).setScale(2, RoundingMode.HALF_UP).doubleValue());
+    public double countField(Shape shape) {
+        return BigDecimal.valueOf(shape.getField()).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
