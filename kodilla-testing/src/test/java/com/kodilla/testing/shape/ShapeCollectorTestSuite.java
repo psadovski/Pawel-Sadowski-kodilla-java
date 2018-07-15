@@ -92,14 +92,36 @@ public class ShapeCollectorTestSuite {
     }
 
     @Test
-    public void testCountField() {
+    public void testGetCircleField() {
         //Given
         Shape circle = new Circle(5.0);
-        ShapeCollector shapeCollector = new ShapeCollector();
         //When
-        double actual = shapeCollector.countField(circle);
+        double actual = circle.getField();
         double expected =78.54;
         //Then
         Assert.assertEquals(expected, actual, 0.01);
     }
+
+    @Test
+    public void testGetSquareField() {
+        //Given
+        Shape square = new Square(5.0);
+        //When
+        double actual = square.getField();
+        double expected =25.00;
+        //Then
+        Assert.assertEquals(expected, actual, 0.01);
+    }
+    @Test
+    public void testGetTriangleField() {
+        //Given
+        Shape triangle = new Triangle(5.0, 5.0);
+        //When
+        double actual = triangle.getField();
+        double expected =12.50;
+        //Then
+        Assert.assertEquals(expected, actual, 0.01);
+    }
+
+
 }

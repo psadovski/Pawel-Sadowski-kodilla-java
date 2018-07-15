@@ -40,8 +40,4 @@ public class ShapeCollector {
             System.out.println(figure.toString());
         }
     }
-
-    public double countField(Shape shape) {
-        return BigDecimal.valueOf(shape.getField()).setScale(2, RoundingMode.HALF_UP).doubleValue();
-    }
 }

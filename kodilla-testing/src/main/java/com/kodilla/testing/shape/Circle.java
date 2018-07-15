@@ -18,7 +18,7 @@ public class Circle implements Shape {
     }
 
     public double getField() {
-        return PI*pow(radius, 2);
+        return PI * pow(radius, 2);
     }
 
     @Override
