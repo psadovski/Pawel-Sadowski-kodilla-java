@@ -10,7 +10,13 @@ public class Metrics {
    private double avarageCommentsPerUser;
    private double avarageCommentsPerPost;
 
-    public Metrics(int userQuantity, int postsCount, int commentsCount, double avaragePostsPerUser, double avarageCommentsPerUser, double avarageCommentsPerPost) {
+    public Metrics(int userQuantity,
+                   int postsCount,
+                   int commentsCount,
+                   double avaragePostsPerUser,
+                   double avarageCommentsPerUser,
+                   double avarageCommentsPerPost) {
+
         this.userQuantity = userQuantity;
         this.postsCount = postsCount;
         this.commentsCount = commentsCount;
@@ -75,7 +81,6 @@ public class Metrics {
     }
 
     public void show() {
-
         System.out.println("Total users quantity equals: " + userQuantity);
         System.out.println("Total users posts count equals: " + postsCount);
         System.out.println("Total users comments count equals: " + userQuantity);

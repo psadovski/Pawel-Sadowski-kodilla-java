@@ -9,17 +9,20 @@ public class StatisticCalculator {
     private double avarageCommentsPerPost;
 
     public Metrics calculateAdvStatistics(Statistics statistics) {
-
-
         userQuantity = statistics.usersNames().size();
         postsCount = statistics.postsCount();
         commentsCount = statistics.commentsCount();
 
-        avaragePostsPerUser = userQuantity == 0 ? 0 : (double)postsCount / userQuantity;
-        avarageCommentsPerUser = userQuantity == 0 ? 0 : (double)commentsCount / userQuantity;
-        avarageCommentsPerPost = postsCount == 0 ? 0 : (double)commentsCount / postsCount;
+        avaragePostsPerUser = userQuantity == 0 ? 0 : (double) postsCount / userQuantity;
+        avarageCommentsPerUser = userQuantity == 0 ? 0 : (double) commentsCount / userQuantity;
+        avarageCommentsPerPost = postsCount == 0 ? 0 : (double) commentsCount / postsCount;
 
-        return new Metrics(userQuantity, postsCount, commentsCount, avaragePostsPerUser, avarageCommentsPerUser,avarageCommentsPerPost);
+        return new Metrics(userQuantity,
+                postsCount,
+                commentsCount,
+                avaragePostsPerUser,
+                avarageCommentsPerUser,
+                avarageCommentsPerPost);
     }
 
     public void showStatistics(Metrics metrics) {

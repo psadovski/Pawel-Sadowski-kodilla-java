@@ -25,19 +25,9 @@ public class StatisticTestSuite {
         //When
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         Metrics metrics = statisticCalculator.calculateAdvStatistics(statisticMock);
-        double actualAvaragePostsPerUser = metrics.getAvaragePostsPerUser();
-        double expectedAvaragePostsPerUser = 0.0;
-
-        double actualAvarageCommentsPerUser = metrics.getAvarageCommentsPerUser();
-        double expectedAvarageCommentsPerUser = 1.0;
-
-        double actualAvarageCommentsPerPost = metrics.getAvarageCommentsPerPost();
-        double expectedAvarageCommentsPerPost = 0.0;
 
         //Then
-        Assert.assertEquals(expectedAvaragePostsPerUser, actualAvaragePostsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerUser, actualAvarageCommentsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerPost, actualAvarageCommentsPerPost, 0.001 );
+        Assert.assertEquals(new Metrics(3, 0, 3, 0.0, 1.0, 0.0 ), metrics);
     }
 
     @Test
@@ -56,19 +46,9 @@ public class StatisticTestSuite {
         //When
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         Metrics metrics = statisticCalculator.calculateAdvStatistics(statisticMock);
-        double actualAvaragePostsPerUser = metrics.getAvaragePostsPerUser();
-        double expectedAvaragePostsPerUser = 250.0;
-
-        double actualAvarageCommentsPerUser = metrics.getAvarageCommentsPerUser();
-        double expectedAvarageCommentsPerUser = 250.0;
-
-        double actualAvarageCommentsPerPost = metrics.getAvarageCommentsPerPost();
-        double expectedAvarageCommentsPerPost = 1.0;
 
         //Then
-        Assert.assertEquals(expectedAvaragePostsPerUser, actualAvaragePostsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerUser, actualAvarageCommentsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerPost, actualAvarageCommentsPerPost, 0.001 );
+        Assert.assertEquals(new Metrics(4, 1000, 1000, 250.0, 250.0, 1.0 ), metrics);
     }
 
     @Test
@@ -87,19 +67,9 @@ public class StatisticTestSuite {
         //When
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         Metrics metrics = statisticCalculator.calculateAdvStatistics(statisticMock);
-        double actualAvaragePostsPerUser = metrics.getAvaragePostsPerUser();
-        double expectedAvaragePostsPerUser = 1.0;
-
-        double actualAvarageCommentsPerUser = metrics.getAvarageCommentsPerUser();
-        double expectedAvarageCommentsPerUser = 0.0;
-
-        double actualAvarageCommentsPerPost = metrics.getAvarageCommentsPerPost();
-        double expectedAvarageCommentsPerPost = 0.0;
 
         //Then
-        Assert.assertEquals(expectedAvaragePostsPerUser, actualAvaragePostsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerUser, actualAvarageCommentsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerPost, actualAvarageCommentsPerPost, 0.001 );
+        Assert.assertEquals(new Metrics(4, 4, 0, 1.0, 0.0, 0.0 ), metrics);
     }
 
     @Test
@@ -118,19 +88,9 @@ public class StatisticTestSuite {
         //When
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         Metrics metrics = statisticCalculator.calculateAdvStatistics(statisticMock);
-        double actualAvaragePostsPerUser = metrics.getAvaragePostsPerUser();
-        double expectedAvaragePostsPerUser = 1.0;
-
-        double actualAvarageCommentsPerUser = metrics.getAvarageCommentsPerUser();
-        double expectedAvarageCommentsPerUser = 0.5;
-
-        double actualAvarageCommentsPerPost = metrics.getAvarageCommentsPerPost();
-        double expectedAvarageCommentsPerPost = 0.5;
 
         //Then
-        Assert.assertEquals(expectedAvaragePostsPerUser, actualAvaragePostsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerUser, actualAvarageCommentsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerPost, actualAvarageCommentsPerPost, 0.001 );
+        Assert.assertEquals(new Metrics(4, 4, 2, 1.0, 0.5, 0.5 ), metrics);
     }
 
     @Test
@@ -149,19 +109,9 @@ public class StatisticTestSuite {
         //When
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         Metrics metrics = statisticCalculator.calculateAdvStatistics(statisticMock);
-        double actualAvaragePostsPerUser = metrics.getAvaragePostsPerUser();
-        double expectedAvaragePostsPerUser = 0.25;
-
-        double actualAvarageCommentsPerUser = metrics.getAvarageCommentsPerUser();
-        double expectedAvarageCommentsPerUser = 0.5;
-
-        double actualAvarageCommentsPerPost = metrics.getAvarageCommentsPerPost();
-        double expectedAvarageCommentsPerPost = 2.0;
 
         //Then
-        Assert.assertEquals(expectedAvaragePostsPerUser, actualAvaragePostsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerUser, actualAvarageCommentsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerPost, actualAvarageCommentsPerPost, 0.001 );
+        Assert.assertEquals(new Metrics(4, 1, 2, 0.25, 0.5, 2.0 ), metrics);
     }
 
     @Test
@@ -176,19 +126,9 @@ public class StatisticTestSuite {
         //When
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         Metrics metrics = statisticCalculator.calculateAdvStatistics(statisticMock);
-        double actualAvaragePostsPerUser = metrics.getAvaragePostsPerUser();
-        double expectedAvaragePostsPerUser = 0.0;
-
-        double actualAvarageCommentsPerUser = metrics.getAvarageCommentsPerUser();
-        double expectedAvarageCommentsPerUser = 0.0;
-
-        double actualAvarageCommentsPerPost = metrics.getAvarageCommentsPerPost();
-        double expectedAvarageCommentsPerPost = 2.0;
 
         //Then
-        Assert.assertEquals(expectedAvaragePostsPerUser, actualAvaragePostsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerUser, actualAvarageCommentsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerPost, actualAvarageCommentsPerPost, 0.001 );
+        Assert.assertEquals(new Metrics(0, 1, 2, 0.0, 0.0, 2.0 ), metrics);
     }
 
     @Test
@@ -206,18 +146,8 @@ public class StatisticTestSuite {
         //When
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         Metrics metrics = statisticCalculator.calculateAdvStatistics(statisticMock);
-        double actualAvaragePostsPerUser = metrics.getAvaragePostsPerUser();
-        double expectedAvaragePostsPerUser = 1.0;
-
-        double actualAvarageCommentsPerUser = metrics.getAvarageCommentsPerUser();
-        double expectedAvarageCommentsPerUser = 1.0;
-
-        double actualAvarageCommentsPerPost = metrics.getAvarageCommentsPerPost();
-        double expectedAvarageCommentsPerPost = 1.0;
 
         //Then
-        Assert.assertEquals(expectedAvaragePostsPerUser, actualAvaragePostsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerUser, actualAvarageCommentsPerUser, 0.001 );
-        Assert.assertEquals(expectedAvarageCommentsPerPost, actualAvarageCommentsPerPost, 0.001 );
+        Assert.assertEquals(new Metrics(100, 100, 100, 1.0, 1.0, 1.0 ), metrics);
     }
 }
