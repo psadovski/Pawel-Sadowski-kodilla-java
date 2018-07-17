@@ -3,10 +3,10 @@ package com.kodilla.good.patterns.challenges;
 import java.util.Objects;
 
 public class Product {
-    private String productName;
-    private double price;
+    private final String productName;
+    private final double price;
 
-    public Product(String productName, double price) {
+    public Product(final String productName, final double price) {
         this.productName = productName;
         this.price = price;
     }

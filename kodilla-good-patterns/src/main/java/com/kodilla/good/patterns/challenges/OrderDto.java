@@ -3,10 +3,10 @@ package com.kodilla.good.patterns.challenges;
 import java.util.Objects;
 
 public class OrderDto {
-    public Customer customer;
-    public boolean isOrdered;
+    public final Customer customer;
+    public final boolean isOrdered;
 
-    public OrderDto(Customer customer, boolean isOrdered) {
+    public OrderDto(final Customer customer, final boolean isOrdered) {
         this.customer = customer;
         this.isOrdered = isOrdered;
     }

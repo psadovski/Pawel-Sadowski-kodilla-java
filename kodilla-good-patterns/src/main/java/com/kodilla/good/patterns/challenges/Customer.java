@@ -3,10 +3,10 @@ package com.kodilla.good.patterns.challenges;
 import java.util.Objects;
 
 public class Customer {
-    private String name;
-    private String surname;
+    private final String name;
+    private final String surname;
 
-    public Customer(String name, String surname) {
+    public Customer(final String name, final String surname) {
         this.name = name;
         this.surname = surname;
     }

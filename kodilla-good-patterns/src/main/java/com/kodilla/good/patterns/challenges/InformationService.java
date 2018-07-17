@@ -1,7 +1,9 @@
 package com.kodilla.good.patterns.challenges;
 
 public class InformationService {
-    public void inform(final Customer customer) {
-        System.out.println("Sending SMS message to customer: " + customer.getName() + " " + customer.getSurname());
+    private static final String INFORMATION= "Sending SMS message to customer: %s %s.";
+
+    public String inform(final Customer customer) {
+        return String.format(INFORMATION, customer.getName(), customer.getSurname());
     }
 }
