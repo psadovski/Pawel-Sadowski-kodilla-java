@@ -15,7 +15,7 @@ public class MovieStoreRunner {
 
         String collect = storeMap.values()
                 .stream()
-                .flatMap(entry -> entry.getValue().stream())
+                .flatMap(v -> v.stream())
                 .collect(Collectors.joining(SEPARATOR));
 
         System.out.println(collect);
