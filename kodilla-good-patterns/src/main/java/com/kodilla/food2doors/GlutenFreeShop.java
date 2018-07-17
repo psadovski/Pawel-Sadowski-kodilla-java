@@ -2,9 +2,10 @@ package com.kodilla.food2doors;
 
 import java.util.Objects;
 
-public class GlutenFreeShop implements Order {
+public class GlutenFreeShop implements Shop {
     private OrderRequest orderRequest;
     private String producerName = "GlutenFreeShop";
+    private static final String ORDER_CREATOR_INFO = "Creating order for: %s %s , adress: %s. Product: %s, producer %s. Price: %s $, Quantity: %s, total order price: %s $";
 
     public GlutenFreeShop(OrderRequest orderRequest) {
         this.orderRequest = orderRequest;
@@ -18,22 +19,16 @@ public class GlutenFreeShop implements Order {
         return orderRequest.getQuantity() * orderRequest.getProduct().getProductPrice();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof GlutenFreeShop)) return false;
-        GlutenFreeShop that = (GlutenFreeShop) o;
-        return Objects.equals(getOrderRequest(), that.getOrderRequest());
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(getOrderRequest());
-    }
-
     public boolean process() {
-        System.out.println("Creating order for: " + this.orderRequest.getCustomer().getCustomerName() + " " + this.orderRequest.getCustomer().getCustomerSurname() + ", adress: " + this.orderRequest.getCustomer().getCustomerAdress() + ". Product: " + this.orderRequest.getProduct().getProductName() + ", producer " + producerName + ". Price: " + this.orderRequest.getProduct().getProductPrice() + " $ " + ", Quantity: " + this.orderRequest.getQuantity() + ", total order price: " + countOrderPrice() + " $.");
+        System.out.println(String.format(ORDER_CREATOR_INFO,
+                this.orderRequest.getCustomer().getCustomerName(),
+                this.orderRequest.getCustomer().getCustomerSurname(),
+                this.orderRequest.getCustomer().getCustomerAdress(),
+                this.orderRequest.getProduct().getProductName(),
+                producerName,
+                this.orderRequest.getProduct().getProductPrice(),
+                this.orderRequest.getQuantity(),
+                countOrderPrice()));
 
         return true;
     }

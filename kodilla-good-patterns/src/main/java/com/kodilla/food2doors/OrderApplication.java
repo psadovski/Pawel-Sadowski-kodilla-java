@@ -5,14 +5,13 @@ public class OrderApplication {
 
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
 
-        OrderRequest orderRequestExtraFoodShop = orderRequestRetriever.retrieveExtraFoodShop();
-        OrderRequest orderRequestGlutenFreeShop = orderRequestRetriever.retrieveGlutenFreeShop();
-        OrderRequest orderHealthyShop = orderRequestRetriever.retrieveHealthyShop();
+        OrderRequest orderRequestExtraFoodShop = orderRequestRetriever.retrieveExtraFoodShopOrder();
+        OrderRequest orderRequestGlutenFreeShop = orderRequestRetriever.retrieveGlutenFreeShopOrder();
+        OrderRequest orderHealthyShop = orderRequestRetriever.retrieveHealthyShopOrder();
 
         OrderProcessor orderFromExtraFoodShop = new OrderProcessor(new ExtraFoodShop(orderRequestExtraFoodShop));
         OrderProcessor orderFromGlutenFreeShop = new OrderProcessor(new GlutenFreeShop(orderRequestGlutenFreeShop));
         OrderProcessor orderFromHealthyShop = new OrderProcessor(new HealthyShop(orderHealthyShop));
-
 
         orderFromExtraFoodShop.order(orderRequestExtraFoodShop);
         orderFromGlutenFreeShop.order(orderRequestGlutenFreeShop);

@@ -1,6 +1,6 @@
 package com.kodilla.food2doors;
 
-public interface Order {
+public interface Shop {
 
     public boolean process();
 }
