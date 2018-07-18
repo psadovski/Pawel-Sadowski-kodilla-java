@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public class AvarageCalculator implements ArrayOperations {
 
-    public void getAverage(int[] numbers) {
+    public static void getAverage(int[] numbers) {
         IntStream.range(0, numbers.length)
                 .forEach(n -> System.out.println(numbers[n]));
 

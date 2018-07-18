@@ -9,11 +9,10 @@ public class ArrayOperationsTestSuite {
     @Test
     public void testGetAvarage() {
         //Given
-        AvarageCalculator averageCalculator = new AvarageCalculator();
         int[] numbers = new int[]{2, 4, 5, 6, 3, 4, 3, 8, 7, 11};
 
         //When
-        averageCalculator.getAverage(numbers);
+        AvarageCalculator.getAverage(numbers);
 
         //Then
         double avarage = IntStream.range(0, numbers.length)
