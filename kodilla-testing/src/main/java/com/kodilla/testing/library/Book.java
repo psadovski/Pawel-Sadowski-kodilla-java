@@ -8,8 +8,8 @@ public class Book {
     private final int publicationYear;
 
     public Book(final String title, final String author, final int publicationYear) {
-        this.title = title;
         this.author = author;
+        this.title = title;
         this.publicationYear = publicationYear;
     }
 
@@ -28,7 +28,7 @@ public class Book {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Book)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return getPublicationYear() == book.getPublicationYear() &&
                 Objects.equals(getTitle(), book.getTitle()) &&
