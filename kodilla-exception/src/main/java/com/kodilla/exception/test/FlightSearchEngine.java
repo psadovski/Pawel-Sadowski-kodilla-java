@@ -1,17 +1,24 @@
 package com.kodilla.exception.test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class FlightSearchEngine {
-    public Map<String, Boolean> findFlight(Flight flight) throws RouteNotFoundException {
-        if (flight != null) {
-            Map<String, Boolean> airport = new HashMap<>();
-            airport.put(flight.getArrivalAirport(), true);
+    private Map<String, Boolean> flightsMap;
+    private static final String FLIGHT_INFORMATION = "Flight from: %s to: %s is avaiable";
 
-        return airport;
+    public FlightSearchEngine(Map<String, Boolean> flightsMap) {
+        this.flightsMap = flightsMap;
+    }
+
+    public Map<String, Boolean> getFlightsMap() {
+        return flightsMap;
+    }
+
+    public void  findFlight(Flight flight) throws RouteNotFoundException {
+        if (getFlightsMap().containsKey(flight.getArrivalAirport())) {
+            System.out.println(String.format(FLIGHT_INFORMATION, flight.getDepartureAirport(), flight.getArrivalAirport()));
         }
 
-        throw new RouteNotFoundException("The object flight was null");
+        throw new RouteNotFoundException("Sorry, there is no flight found!");
     }
 }

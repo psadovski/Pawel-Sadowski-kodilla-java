@@ -3,10 +3,10 @@ package com.kodilla.exception.test;
 import java.util.Objects;
 
 public class Flight {
-    private String departureAirport;
-    private String arrivalAirport;
+    private final String departureAirport;
+    private final String arrivalAirport;
 
-    public Flight(String departureAirport, String arrivalAirport) {
+    public Flight(final String departureAirport, final String arrivalAirport) {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
     }
