@@ -1,6 +1,7 @@
 package com.kodilla.stream.portfolio;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public final class Task {
     private final String title;
@@ -10,7 +11,13 @@ public final class Task {
     private final LocalDate created;
     private final LocalDate deadline;
 
-    public Task(final String title, final String description, final User assignedUser, final User creator, final LocalDate created, final LocalDate deadline) {
+    public Task(final String title,
+                final String description,
+                final User assignedUser,
+                final User creator,
+                final LocalDate created,
+                final LocalDate deadline) {
+
         this.title = title;
         this.description = description;
         this.assignedUser = assignedUser;
@@ -41,6 +48,25 @@ public final class Task {
 
     public LocalDate getDeadline() {
         return this.deadline;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+        Task task = (Task) o;
+        return Objects.equals(getTitle(), task.getTitle()) &&
+                Objects.equals(getDescription(), task.getDescription()) &&
+                Objects.equals(getAssignedUser(), task.getAssignedUser()) &&
+                Objects.equals(getCreator(), task.getCreator()) &&
+                Objects.equals(getCreated(), task.getCreated()) &&
+                Objects.equals(getDeadline(), task.getDeadline());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getTitle(), getDescription(), getAssignedUser(), getCreator(), getCreated(), getDeadline());
     }
 
     @Override
