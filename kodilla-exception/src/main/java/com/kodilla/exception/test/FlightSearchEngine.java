@@ -10,12 +10,8 @@ public class FlightSearchEngine {
         this.flightsMap = flightsMap;
     }
 
-    public Map<String, Boolean> getFlightsMap() {
-        return flightsMap;
-    }
-
     public void  findFlight(Flight flight) throws RouteNotFoundException {
-        if (getFlightsMap().containsKey(flight.getArrivalAirport())) {
+        if (flightsMap.containsKey(flight.getArrivalAirport())) {
             System.out.println(String.format(FLIGHT_INFORMATION, flight.getDepartureAirport(), flight.getArrivalAirport()));
         }
 
