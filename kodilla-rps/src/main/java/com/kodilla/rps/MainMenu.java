@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class MainMenu {
     private boolean end = false;
-    private final GameProcessor gameProcessor = new GameProcessor();
 
     public void runMainMenuFunction() {
         while(!end){
@@ -13,7 +12,7 @@ public class MainMenu {
             String input = scan.next();
             switch(input){
                 case "s":
-                    gameProcessor.runGame(); break;
+                    new GameProcessor().runGame(); break;
                 case "q":
                     System.out.println("Ending the game...");
                     end = true; break;

@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class ChoiceComparator {
     public void compare(int gamerChoice) {
         ComputerChoice compChoice = new ComputerChoice();
-        compChoice.computerChoosing();
 
         switch(gamerChoice){
             case '1': //Rock
@@ -139,7 +138,6 @@ public class ChoiceComparator {
                 }
 
             case 'n':
-                //System.exit(0); break;
 
         }
     }

@@ -6,12 +6,11 @@ public class RoundsRunner {
 
     public void runRounds() {
         Scanner scan = new Scanner(System.in);
-        ChoiceComparator compareChoices = new ChoiceComparator();
 
         System.out.println("Please, make your move!");
-        int gameMove = scan.nextInt();
+        int gamerMove = scan.nextInt();
 
-        compareChoices.compare(gameMove);
+        new ChoiceComparator().compare(gamerMove);
 
 
     }

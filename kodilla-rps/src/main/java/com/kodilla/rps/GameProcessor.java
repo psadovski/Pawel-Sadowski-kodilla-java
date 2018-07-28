@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class GameProcessor {
      public void runGame() {
         Scanner scan = new Scanner(System.in);
-        GameInstructionDisplayer displayer = new GameInstructionDisplayer();
         RoundsRunner roundsRunner = new RoundsRunner();
 
         System.out.println("Please insert your name: ");
@@ -14,7 +13,7 @@ public class GameProcessor {
         int roundQuantity = scan.nextInt();
 
         System.out.println("Game opened for gamer " + gamerName + ", game round quantity: " + roundQuantity);
-        System.out.println(displayer.displayInstruction());
+        System.out.println(new GameInstructionDisplayer().displayInstruction());
 
         for (int i = 0; i < roundQuantity; i++) {
            roundsRunner.runRounds();
