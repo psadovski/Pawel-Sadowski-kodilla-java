@@ -35,18 +35,4 @@ public final class TaskList {
                 "tasks=\n" + tasks + "\n" +
                 '}' + "\n";
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof TaskList)) return false;
-        TaskList taskList = (TaskList) o;
-        return name.equals(taskList.name);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(getTasks(), getName());
-    }
 }

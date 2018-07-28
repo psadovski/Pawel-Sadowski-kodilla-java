@@ -7,9 +7,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
-
-import static java.util.stream.Collectors.toList;
+import java.util.stream.Collectors;
 
 public class BoardTestSuite {
     private Board prepareTestData() {
@@ -81,19 +79,17 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
-        List<Integer> days = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
-                .flatMap(s -> s.getTasks().stream())
-                .map(d -> Period.between(d.getCreated(), LocalDate.now()).getDays())
-                .collect(toList());
+        List<TaskList> taskListInProgress = new ArrayList<>();
+        taskListInProgress.add(project.getTaskLists().get(1));
 
-        double avarage = IntStream.range(0, days.size())
-                .map(n -> days.get(n))
-                .average().getAsDouble();
+        double average = project.getTaskLists().stream()
+                .filter(taskListInProgress::contains)
+                .flatMap(t -> t.getTasks().stream())
+                .map(s -> Period.between(s.getCreated(), LocalDate.now()).getDays())
+                .collect(Collectors.summarizingDouble(x -> x))
+                .getAverage();
 
         //Then
-        Assert.assertEquals(10.0, avarage, 0.001);
+        Assert.assertEquals(10.0, average, 0.001);
     }
 }
