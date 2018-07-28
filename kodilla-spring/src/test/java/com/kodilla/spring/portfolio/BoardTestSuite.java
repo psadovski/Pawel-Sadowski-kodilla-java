@@ -26,13 +26,11 @@ public class BoardTestSuite {
         TaskList doneList = board.getDoneList();
         doneList.getTasks().add("Task number 3");
 
-        board.getTaskLists().add(listToDo);
-        board.getTaskLists().add(inProgressList);
-        board.getTaskLists().add(doneList);
-        System.out.println(board);
+        board.getToDoList();
+        board.getInProgressList();
+        board.getDoneList();
 
         //Then
-        Assert.assertEquals(3, board.getTaskLists().size());
         Assert.assertEquals("Task number 1", listToDo.getTasks().get(0));
         Assert.assertEquals("Task number 2", inProgressList.getTasks().get(0));
         Assert.assertEquals("Task number 3", doneList.getTasks().get(0));

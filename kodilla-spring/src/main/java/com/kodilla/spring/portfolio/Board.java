@@ -7,7 +7,6 @@ public class Board {
     private final TaskList toDoList;
     private final TaskList inProgressList;
     private final TaskList doneList;
-    private final List<TaskList> taskLists = new ArrayList<>();
 
     public Board(final TaskList toDoList, final TaskList inProgressList, final TaskList doneList) {
         this.toDoList = toDoList;
@@ -27,16 +26,12 @@ public class Board {
         return this.doneList;
     }
 
-    public List<TaskList> getTaskLists() {
-        return taskLists;
-    }
 
     @Override
     public String toString() {
-        String s = "Board \n";
-        for(TaskList list : taskLists) {
-            s = s + list.toString() + "\n";
-        }
-        return s;
+        return "Board: " +
+                "toDoList = " + toDoList +
+                ", inProgressList = " + inProgressList +
+                ", doneList = " + doneList;
     }
 }

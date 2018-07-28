@@ -16,7 +16,12 @@ public class TaskList {
 
     @Override
     public String toString() {
-        return "Task" + tasks;
+        String result = "";
+
+        for (int i = 0; i < tasks.size(); i++) {
+            result += "" + tasks.get(i);
+        }
+        return result;
     }
 }
 
