@@ -14,7 +14,7 @@ public class LibraryTestSuite {
         Library library = new Library("Book library 1");
         IntStream.iterate(1,n -> n+1)
                 .limit(10)
-                .forEach(n -> library.getBooks().add(new Book("\"First step in Java \" part: " + n, "Tom", LocalDate.of(2008 + n, 06,7))));
+                .forEach(n -> library.getBooks().add(new Book("\"First step in Java\" part: " + n, "Tom", LocalDate.of(2008 + n, 06,7))));
 
         Library clonedLibrary = null;
         try {
