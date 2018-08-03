@@ -1,16 +1,16 @@
 package com.kodilla.patterns.factory.tasks;
 
-public final class ShoppingTask implements Task {
+public class DrivingTask implements Task {
     private final String taskName;
-    private final String whatToBuy;
-    private final double quantity;
+    private final String where;
+    private final String using;
     public boolean isExexuted = false;
-    private static final String EXECuTING_TASK_INFO = "Executing task: %s, Buying: %s, quantity: %s.";
+    private static final String EXECuTING_TASK_INFO = "Executing task: %s, Driving to: %s, by: %s.";
 
-    public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
+    public DrivingTask(final String taskName, final String where, final String using) {
         this.taskName = taskName;
-        this.whatToBuy = whatToBuy;
-        this.quantity = quantity;
+        this.where = where;
+        this.using = using;
     }
 
     @Override
@@ -22,8 +22,8 @@ public final class ShoppingTask implements Task {
     public void executeTask() {
         System.out.println(String.format(EXECuTING_TASK_INFO,
                 this.taskName,
-                this.whatToBuy,
-                this.quantity));
+                this.where,
+                this.using));
 
         isExexuted = true;
     }
@@ -33,3 +33,4 @@ public final class ShoppingTask implements Task {
         return isExexuted;
     }
 }
+
