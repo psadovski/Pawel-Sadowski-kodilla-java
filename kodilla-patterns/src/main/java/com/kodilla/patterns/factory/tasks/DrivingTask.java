@@ -1,11 +1,12 @@
 package com.kodilla.patterns.factory.tasks;
 
-public class DrivingTask implements Task {
+public final class DrivingTask implements Task {
+    private static final String EXECUTING_TASK_INFO = "Executing task: %s, Driving to: %s, by: %s.";
+
     private final String taskName;
     private final String where;
     private final String using;
-    public boolean isExexuted = false;
-    private static final String EXECuTING_TASK_INFO = "Executing task: %s, Driving to: %s, by: %s.";
+    public boolean isExexuted;
 
     public DrivingTask(final String taskName, final String where, final String using) {
         this.taskName = taskName;
@@ -20,12 +21,12 @@ public class DrivingTask implements Task {
 
     @Override
     public void executeTask() {
-        System.out.println(String.format(EXECuTING_TASK_INFO,
+        System.out.println(String.format(EXECUTING_TASK_INFO,
                 this.taskName,
                 this.where,
                 this.using));
 
-        isExexuted = true;
+        isExexuted = false;
     }
 
     @Override
