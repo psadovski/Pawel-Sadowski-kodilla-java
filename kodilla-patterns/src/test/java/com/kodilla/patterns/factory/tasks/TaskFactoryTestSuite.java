@@ -37,6 +37,6 @@ public class TaskFactoryTestSuite {
         driving.executeTask();
 
         //Then
-        Assert.assertFalse(driving.isTaskExecuted());
+        Assert.assertTrue(driving.isTaskExecuted());
     }
 }

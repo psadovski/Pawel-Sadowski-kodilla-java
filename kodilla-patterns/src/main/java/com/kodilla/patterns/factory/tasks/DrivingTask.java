@@ -1,17 +1,19 @@
 package com.kodilla.patterns.factory.tasks;
 
 public final class DrivingTask implements Task {
+
     private static final String EXECUTING_TASK_INFO = "Executing task: %s, Driving to: %s, by: %s.";
 
     private final String taskName;
     private final String where;
     private final String using;
-    public boolean isExexuted;
+    private boolean isExexuted;
 
     public DrivingTask(final String taskName, final String where, final String using) {
         this.taskName = taskName;
         this.where = where;
         this.using = using;
+        this.isExexuted = false;
     }
 
     @Override
@@ -26,7 +28,7 @@ public final class DrivingTask implements Task {
                 this.where,
                 this.using));
 
-        isExexuted = false;
+        isExexuted = true;
     }
 
     @Override
