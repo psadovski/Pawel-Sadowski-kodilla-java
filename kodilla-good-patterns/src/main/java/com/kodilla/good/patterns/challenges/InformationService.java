@@ -1,9 +1,17 @@
 package com.kodilla.good.patterns.challenges;
 
 public class InformationService {
-    private static final String INFORMATION= "Sending SMS message to customer: %s %s.";
+    private static final String INFORMATION = "Created order for customer: %s, product: %s, price: %s, quantity: %s, total price: %s";
 
-    public String inform(final Customer customer) {
-        return String.format(INFORMATION, customer.getName(), customer.getSurname());
+    public String inform(Order order, boolean isOrdered) {
+        if (isOrdered) {
+           return String.format(INFORMATION,
+                    order.getCustomer(),
+                    order.getProduct().getProductName(),
+                    order.getProduct().getPrice(),
+                    order.getQuantity(),
+                    order.getQuantity() * order.getProduct().getPrice());
+        }
+        return "No order created";
     }
 }

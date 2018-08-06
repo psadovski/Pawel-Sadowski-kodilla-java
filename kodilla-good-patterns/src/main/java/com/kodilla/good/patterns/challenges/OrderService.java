@@ -1,18 +1,18 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.time.LocalDate;
-
 public class OrderService {
-    private static final String ORDER_DETAILS = "Ordered by: %s %s. Product name: %s, price: %s. Ordering date: %s";
+    private final ProductRepository productRepository;
 
-    public boolean order(final Customer customer, final Product product, final LocalDate orderDate) {
-        System.out.println(String.format(ORDER_DETAILS,
-                customer.getName(),
-                customer.getSurname(),
-                product.getProductName(),
-                product.getPrice(),
-                orderDate.toString()));
+    public OrderService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
-        return true;
+    public boolean order(Order order) {
+        if (productRepository.check(order.getProduct(), order.getQuantity())) {
+            productRepository.remove(order.getProduct(), order.getQuantity());
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -30,15 +30,11 @@ public class Customer {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(getName(), getSurname());
     }
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+        return  name + " " + surname;
     }
 }

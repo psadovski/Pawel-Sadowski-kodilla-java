@@ -30,15 +30,13 @@ public class Product {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(productName, price);
     }
 
     @Override
     public String toString() {
-        return "Product{" +
-                "productName='" + productName + '\'' +
-                ", price='" + price + '\'' +
-                '}';
+        return "Product: " +
+                "productName: " + productName +
+                ", price: " + price;
     }
 }
