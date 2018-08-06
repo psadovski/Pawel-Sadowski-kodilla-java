@@ -1,38 +1,57 @@
 package com.kodilla.good.patterns.airport;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FlightSearchEngineTestSuite {
     @Test
     public void testFindFlightFrom() {
         //Given
-        FlightInitializer flights = new FlightInitializer();
-        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(flights.initFlights());
+        FlightInitializer initializedFlights = new FlightInitializer();
+        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(initializedFlights.initFlights());
 
-        //When and Then
-        System.out.println("Flights from Gdansk:");
-        System.out.println(flightSearchEngine.findFlightFrom("Gdansk"));
+        //When
+        List<Flight> actual = flightSearchEngine.findFlightFrom("Gdansk");
+        List<Flight> expected = new ArrayList<>();
+        expected.add(new Flight("Gdansk", "Wrocław"));
+        expected.add(new Flight("Gdansk", "Krakow"));
+        expected.add(new Flight("Gdansk", "Warszawa"));
+
+        //Then
+        Assert.assertEquals(expected.size(), actual.size());
     }
 
     @Test
     public void testFindFlightTo() {
         //Given
-        FlightInitializer flights = new FlightInitializer();
-        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(flights.initFlights());
+        FlightInitializer initializedFlights = new FlightInitializer();
+        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(initializedFlights.initFlights());
 
-        //When and Then
-        System.out.println("Flights from Warszawa:");
-        System.out.println(flightSearchEngine.findFlightsTo("Warszawa"));
+        //When
+        List<Flight> actual = flightSearchEngine.findFlightsTo("Warszawa");
+        List<Flight> expected = new ArrayList<>();
+        expected.add(new Flight("Gdansk", "Warszawa"));
+        expected.add(new Flight("Krakow", "Warszawa"));
+
+        //Then
+        Assert.assertEquals(expected.size(), actual.size());
     }
 
     @Test
     public void testSearchWithChange() {
         //Given
-        FlightInitializer flights = new FlightInitializer();
-        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(flights.initFlights());
+        FlightInitializer initializedFlights = new FlightInitializer();
+        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(initializedFlights.initFlights());
 
-        //When and Then
-        System.out.println("Flights with change from Warszawa to Krakow");
-        System.out.println(flightSearchEngine.searchWithChange("Warszawa", "Krakow"));
+        //When
+        List<FlightPair> actual = flightSearchEngine.searchWithChange("Warszawa", "Krakow");
+        List<FlightPair> expected = new ArrayList<>();
+        expected.add(new FlightPair(new Flight("Warszawa", "Gdansk"), new Flight("Gdansk", "Krakow")));
+
+        //Then
+        Assert.assertEquals(expected.size(), actual.size());
     }
 }
