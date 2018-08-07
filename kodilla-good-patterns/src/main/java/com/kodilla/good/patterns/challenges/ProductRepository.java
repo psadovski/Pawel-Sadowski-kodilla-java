@@ -25,7 +25,7 @@ public class ProductRepository {
     }
 
     public boolean check(Product product, Integer quantity) {
-        return quantity >= 0 && this.products.containsKey(product);
+        return quantity >= 0 && this.products.containsKey(product) && products.get(product) >= quantity;
     }
 }
 
