@@ -5,7 +5,7 @@ public class OrderRequestRetriever {
     public OrderRequest retrieveExtraFoodShopOrder() {
         Customer customer = new Customer("Tom", "Smith", "Lipowa 17 Boston");
         Product product = new Product("Cheeseburger", 4.50);
-        int quantity = 2;
+        int quantity = 30;
 
         return new OrderRequest(customer, product, quantity);
     }

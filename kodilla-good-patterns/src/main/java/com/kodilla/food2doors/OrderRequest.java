@@ -37,7 +37,6 @@ public class OrderRequest {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(getCustomer(), getProduct(), getQuantity());
     }
 }

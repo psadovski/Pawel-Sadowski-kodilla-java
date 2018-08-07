@@ -1,11 +1,11 @@
 package com.kodilla.food2doors;
 
-import java.util.Objects;
-
 public class HealthyShop implements Shop {
+
+    private static final String ORDER_CREATOR_INFO = "Creating order for: %s %s , adress: %s. Product: %s, producer %s. Price: %s $, Quantity: %s, total order price: %s $";
+
     private OrderRequest orderRequest;
     private String producerName = "HealthyShop";
-    private static final String ORDER_CREATOR_INFO = "Creating order for: %s %s , adress: %s. Product: %s, producer %s. Price: %s $, Quantity: %s, total order price: %s $";
 
     public HealthyShop(OrderRequest orderRequest) {
         this.orderRequest = orderRequest;
@@ -20,16 +20,20 @@ public class HealthyShop implements Shop {
     }
 
     public boolean process() {
-        System.out.println(String.format(ORDER_CREATOR_INFO,
-                this.orderRequest.getCustomer().getCustomerName(),
-                this.orderRequest.getCustomer().getCustomerSurname(),
-                this.orderRequest.getCustomer().getCustomerAdress(),
-                this.orderRequest.getProduct().getProductName(),
-                producerName,
-                this.orderRequest.getProduct().getProductPrice(),
-                this.orderRequest.getQuantity(),
-                countOrderPrice()));
+        if (this.orderRequest.getQuantity() < 5) {
+            System.out.println(String.format(ORDER_CREATOR_INFO,
+                    this.orderRequest.getCustomer().getCustomerName(),
+                    this.orderRequest.getCustomer().getCustomerSurname(),
+                    this.orderRequest.getCustomer().getCustomerAdress(),
+                    this.orderRequest.getProduct().getProductName(),
+                    producerName,
+                    this.orderRequest.getProduct().getProductPrice(),
+                    this.orderRequest.getQuantity(),
+                    countOrderPrice()));
 
-        return true;
+            return true;
+        }
+        System.out.println("Product limit exceeded, order rejected");
+        return false;
     }
 }
