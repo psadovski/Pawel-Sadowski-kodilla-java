@@ -10,8 +10,8 @@ public class FlightSearchEngineTestSuite {
     @Test
     public void testFindFlightFrom() {
         //Given
-        FlightInitializer initializedFlights = new FlightInitializer();
-        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(initializedFlights.initFlights());
+        FlightInitializer flightInitializer = new FlightInitializer();
+        FlightSearchEngine flightSearchEngine = new FlightSearchEngine(flightInitializer.initFlights());
 
         //When
         List<Flight> actual = flightSearchEngine.findFlightFrom("Gdansk");
