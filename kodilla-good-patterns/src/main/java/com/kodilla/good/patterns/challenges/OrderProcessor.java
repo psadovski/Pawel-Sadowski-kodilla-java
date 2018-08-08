@@ -11,7 +11,6 @@ public class OrderProcessor {
 
     public OrderDto process(Order order) {
         boolean isOrdered = orderService.order(order);
-        System.out.println(informationService.inform(order, isOrdered));
         return new OrderDto(order, isOrdered);
     }
 }

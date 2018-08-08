@@ -17,6 +17,7 @@ public class Application {
         Customer customer = new Customer("Tom", "Smith");
         Order order = new Order(customer, new Product("Telephone", 100), 2);
 
-        orderProcessor.process(order);
+        OrderDto orderDto = orderProcessor.process(order);
+        System.out.println(informationService.inform(orderDto));
     }
 }
