@@ -9,7 +9,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task shopping = taskFactory.createTask(EnumTask.SHOPPING_TASK);
+        Task shopping = taskFactory.createTask(TaskType.SHOPPING_TASK);
         shopping.executeTask();
 
         //Then
@@ -21,7 +21,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task painting = taskFactory.createTask(EnumTask.PAINTING_TASK);
+        Task painting = taskFactory.createTask(TaskType.PAINTING_TASK);
         painting.executeTask();
 
         //Then
@@ -33,7 +33,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task driving = taskFactory.createTask(EnumTask.DRIVING_TASK);
+        Task driving = taskFactory.createTask(TaskType.DRIVING_TASK);
         driving.executeTask();
 
         //Then

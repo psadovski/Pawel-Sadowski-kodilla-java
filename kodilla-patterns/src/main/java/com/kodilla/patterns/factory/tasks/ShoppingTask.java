@@ -7,13 +7,13 @@ public final class ShoppingTask implements Task {
     private final String taskName;
     private final String whatToBuy;
     private final double quantity;
-    private boolean isExexuted;
+    private boolean isExecuted;
 
     public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
         this.taskName = taskName;
         this.whatToBuy = whatToBuy;
         this.quantity = quantity;
-        this.isExexuted = false;
+        this.isExecuted = false;
     }
 
     @Override
@@ -28,11 +28,11 @@ public final class ShoppingTask implements Task {
                 this.whatToBuy,
                 this.quantity));
 
-        isExexuted = true;
+        isExecuted = true;
     }
 
     @Override
     public boolean isTaskExecuted() {
-        return isExexuted;
+        return isExecuted;
     }
 }

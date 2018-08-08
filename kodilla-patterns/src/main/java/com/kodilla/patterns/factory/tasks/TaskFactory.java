@@ -1,10 +1,10 @@
 package com.kodilla.patterns.factory.tasks;
 
 public final class TaskFactory {
-    private EnumTask enumTask;
+    private TaskType taskType;
 
-    public final Task createTask(EnumTask enumTask) {
-        switch (enumTask) {
+    public final Task createTask(TaskType taskType) {
+        switch (taskType) {
             case SHOPPING_TASK:
                 return new ShoppingTask("Buy new company accesory", "Cars", 3);
             case PAINTING_TASK:

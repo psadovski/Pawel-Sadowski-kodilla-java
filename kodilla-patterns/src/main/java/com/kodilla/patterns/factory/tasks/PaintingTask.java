@@ -7,13 +7,13 @@ public final class PaintingTask implements Task {
     private final String taskName;
     private final String color;
     private final String whatToPaint;
-    private boolean isExexuted;
+    private boolean isExecuted;
 
     public PaintingTask(final String taskName, final String color, final String whatToPaint) {
         this.taskName = taskName;
         this.color = color;
         this.whatToPaint = whatToPaint;
-        this.isExexuted = false;
+        this.isExecuted = false;
     }
 
     @Override
@@ -28,12 +28,12 @@ public final class PaintingTask implements Task {
                 this.whatToPaint,
                 this.color));
 
-        isExexuted = true;
+        isExecuted = true;
     }
 
     @Override
     public boolean isTaskExecuted() {
-        return isExexuted;
+        return isExecuted;
     }
 }
 

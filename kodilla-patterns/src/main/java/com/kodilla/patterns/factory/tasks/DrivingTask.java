@@ -7,13 +7,13 @@ public final class DrivingTask implements Task {
     private final String taskName;
     private final String where;
     private final String using;
-    private boolean isExexuted;
+    private boolean isExecuted;
 
     public DrivingTask(final String taskName, final String where, final String using) {
         this.taskName = taskName;
         this.where = where;
         this.using = using;
-        this.isExexuted = false;
+        this.isExecuted = false;
     }
 
     @Override
@@ -28,12 +28,12 @@ public final class DrivingTask implements Task {
                 this.where,
                 this.using));
 
-        isExexuted = true;
+        isExecuted = true;
     }
 
     @Override
     public boolean isTaskExecuted() {
-        return isExexuted;
+        return isExecuted;
     }
 }
 
