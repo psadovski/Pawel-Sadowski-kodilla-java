@@ -19,7 +19,7 @@ public class TaskListDaoTestSuite {
     @Test
     public void testFindByListName() {
         //Given
-        TaskList taskList = new TaskList("Doned Tasks", "Doned Tasks list description");
+        TaskList taskList = new TaskList("listName", "description");
         taskListDao.save(taskList);
         String listName = taskList.getListName();
 
@@ -28,8 +28,8 @@ public class TaskListDaoTestSuite {
 
         //Then
         String actual = searchedList.get(0).getListName();
-        String expected = taskList.getListName();
-        Assert.assertEquals(expected, actual);
+        String explicite = taskList.getListName();
+        Assert.assertEquals(explicite, actual);
         Assert.assertEquals(1, searchedList.size());
 
         //CleanUp
