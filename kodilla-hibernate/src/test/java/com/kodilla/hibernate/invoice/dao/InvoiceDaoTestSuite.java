@@ -57,7 +57,7 @@ public class InvoiceDaoTestSuite {
         try {
             invoiceDao.delete(invoice);
         } catch (Exception e) {
-            System.out.println("Error");
+            e.printStackTrace();
         }
     }
 }

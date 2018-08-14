@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "INVOICE")
@@ -53,5 +54,28 @@ public class Invoice {
 
     private void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Invoice invoice = (Invoice) o;
+        return id == invoice.id &&
+                Objects.equals(name, invoice.name) &&
+                Objects.equals(items, invoice.items);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, items);
+    }
+
+    @Override
+    public String toString() {
+        return "Invoice: " +
+                "id = " + id +
+                ", name = " + name +
+                ", items = " + items;
     }
 }
