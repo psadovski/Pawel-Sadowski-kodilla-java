@@ -1,0 +1,31 @@
+INSERT INTO POSTS (USER_ID, BODY)
+ VALUES (1, "This is my second post on this forum!");
+INSERT INTO POSTS (USER_ID, BODY)
+ VALUES (4, "This is my third post on this forum!");
+INSERT INTO POSTS (USER_ID, BODY)
+ VALUES (5, "This is my fourth post on this forum!");
+
+COMMIT;
+
+UPDATE POSTS
+ SET BODY = "To delete"
+ WHERE ID = 8;
+
+UPDATE POSTS
+ SET BODY = "To delete"
+ WHERE ID = 9;
+
+UPDATE POSTS
+ SET BODY = "To delete"
+ WHERE ID = 10;
+
+COMMIT;
+
+DELETE FROM POSTS
+ WHERE Id = 8;
+DELETE FROM POSTS
+ WHERE Id = 9;
+DELETE FROM POSTS
+ WHERE Id = 10;
+
+COMMIT;
