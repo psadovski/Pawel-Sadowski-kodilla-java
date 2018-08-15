@@ -12,17 +12,26 @@ public class OrderApplication {
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         ExtraFoodShopRepository extraFoodShopRepository = new ExtraFoodShopRepository();
         initRepository(extraFoodShopRepository);
+        InformationService informationService = new InformationService();
 
         OrderRequest orderRequestExtraFoodShop = orderRequestRetriever.retrieveExtraFoodShopOrder();
         OrderRequest orderRequestGlutenFreeShop = orderRequestRetriever.retrieveGlutenFreeShopOrder();
-        OrderRequest orderHealthyShop = orderRequestRetriever.retrieveHealthyShopOrder();
+        OrderRequest orderRequestHealthyShop = orderRequestRetriever.retrieveHealthyShopOrder();
 
         OrderProcessor orderFromExtraFoodShop = new OrderProcessor(new ExtraFoodShop(orderRequestExtraFoodShop, extraFoodShopRepository));
         OrderProcessor orderFromGlutenFreeShop = new OrderProcessor(new GlutenFreeShop(orderRequestGlutenFreeShop));
-        OrderProcessor orderFromHealthyShop = new OrderProcessor(new HealthyShop(orderHealthyShop));
+        OrderProcessor orderFromHealthyShop = new OrderProcessor(new HealthyShop(orderRequestHealthyShop));
 
-        orderFromExtraFoodShop.order(orderRequestExtraFoodShop);
-        orderFromGlutenFreeShop.order(orderRequestGlutenFreeShop);
-        orderFromHealthyShop.order(orderHealthyShop);
+        OrderDTO orderDtoExtraFoodShop = orderFromExtraFoodShop.order(orderRequestExtraFoodShop);
+        System.out.println(informationService.orderCreationInform(orderDtoExtraFoodShop));
+        System.out.println(informationService.orderInform(orderDtoExtraFoodShop));
+
+        OrderDTO orderDtoGlutenFreeShop = orderFromGlutenFreeShop.order(orderRequestGlutenFreeShop);
+        System.out.println(informationService.orderCreationInform(orderDtoGlutenFreeShop));
+        System.out.println(informationService.orderInform(orderDtoGlutenFreeShop));
+
+        OrderDTO orderDtoHealthyShop = orderFromHealthyShop.order(orderRequestHealthyShop);
+        System.out.println(informationService.orderCreationInform(orderDtoHealthyShop));
+        System.out.println(informationService.orderInform(orderDtoHealthyShop));
     }
 }
