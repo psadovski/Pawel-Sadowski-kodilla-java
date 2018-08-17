@@ -2,6 +2,7 @@ package com.kodilla.patterns.builder.bigmac;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public final class Bigmac {
     private final String bun;
@@ -61,6 +62,22 @@ public final class Bigmac {
         public Bigmac build() {
             return new Bigmac(bun, burgers, sauce, ingredients);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bigmac bigmac = (Bigmac) o;
+        return burgers == bigmac.burgers &&
+                Objects.equals(bun, bigmac.bun) &&
+                Objects.equals(sauce, bigmac.sauce) &&
+                Objects.equals(ingredients, bigmac.ingredients);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bun, burgers, sauce, ingredients);
     }
 
     @Override
