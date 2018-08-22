@@ -43,19 +43,20 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(greyMatter);
 
         employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
 
         //When
         List<Employee> employeeList = employeeDao.findEmployeeByLastName("Smith");
-        String actual = employeeList.get(0).getFirstName();
-        String expected = "John";
+        employeeList.forEach(employee -> Assert.assertEquals("Smith", employee.getLastName()));
 
-        //Then
-        Assert.assertNotEquals(1, employeeList.size());
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(1, employeeList.size());
 
         //CleanUp
         try {
             employeeDao.delete(johnSmith);
+            employeeDao.delete(stephanieClarckson);
+            employeeDao.delete(lindaKovalsky);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -85,18 +86,20 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(greyMatter);
 
         companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
 
         //When
         List<Company> companyList = companyDao.findCompanyByThreeBeginningLetters("Sof");
-        String actual = companyList.get(0).getName();
-        String expected = "Software Machine";
-        //Then
-        Assert.assertNotEquals(1, companyList.size());
-        Assert.assertEquals(expected, actual);
+        companyList.forEach(company -> Assert.assertEquals("Software Machine", company.getName()));
+
+        Assert.assertEquals(1, companyList.size());
 
         //CleanUp
         try {
             companyDao.delete(softwareMachine);
+            companyDao.delete(dataMaesters);
+            companyDao.delete(greyMatter);
         } catch (Exception e) {
             e.printStackTrace();
         }
