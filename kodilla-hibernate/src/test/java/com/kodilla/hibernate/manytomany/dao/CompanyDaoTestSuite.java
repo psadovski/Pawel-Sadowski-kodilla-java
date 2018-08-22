@@ -46,9 +46,12 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Employee> employeeList = employeeDao.findEmployeeByLastName("Smith");
+        String actual = employeeList.get(0).getFirstName();
+        String expected = "John";
 
         //Then
         Assert.assertNotEquals(1, employeeList.size());
+        Assert.assertEquals(expected, actual);
 
         //CleanUp
         try {
@@ -66,7 +69,7 @@ public class CompanyDaoTestSuite {
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
         Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
+        Company dataMaesters = new Company("Data Masters");
         Company greyMatter = new Company("Grey Matter");
 
         softwareMachine.getEmployees().add(johnSmith);
@@ -85,9 +88,11 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Company> companyList = companyDao.findCompanyByThreeBeginningLetters("Sof");
-
+        String actual = companyList.get(0).getName();
+        String expected = "Software Machine";
         //Then
         Assert.assertNotEquals(1, companyList.size());
+        Assert.assertEquals(expected, actual);
 
         //CleanUp
         try {

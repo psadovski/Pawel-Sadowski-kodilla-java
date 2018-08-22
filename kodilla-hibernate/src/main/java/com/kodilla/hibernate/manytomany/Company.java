@@ -9,7 +9,7 @@ import java.util.Objects;
 @NamedNativeQuery(
         name = "Company.findCompanyByThreeBeginningLetters",
         query = "SELECT * FROM COMPANIES" +
-                " WHERE COMPANY_NAME LIKE (:COMPANYNAME + '%')",
+                " WHERE NAME LIKE (:COMPANY + '%')",
         resultClass = Company.class
 )
 @Entity
@@ -30,13 +30,13 @@ public class Company {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "COMPANY_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name = "COMPANY_NAME")
+    @Column(name = "NAME")
     public String getName() {
         return this.name;
     }
