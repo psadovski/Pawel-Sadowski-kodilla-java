@@ -91,7 +91,7 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Company> companyList = companyDao.findCompanyByThreeBeginningLetters("Sof");
-        companyList.forEach(company -> Assert.assertEquals("Software Machine", company.getName()));
+        companyList.forEach(company -> Assert.assertEquals("Sof", company.getName().substring(0,3)));
 
         Assert.assertEquals(1, companyList.size());
 
