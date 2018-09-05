@@ -108,4 +108,22 @@ public class RpsMenu {
     public static void printReplayGameInfo() {
         System.out.println("Replaying game...");
     }
+
+    public static String getEndGameChoice() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
+    }
+
+    public static void printEndGameChoice() {
+        System.out.println("Are you sure to end the game? Yes[y]/No[n]");
+    }
+
+    public static String getReplayGameChoice() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
+    }
+
+    public static void printReplayGameChoice() {
+        System.out.println("Are you sure to replay the game? Yes[y]/No[n]");
+    }
 }
