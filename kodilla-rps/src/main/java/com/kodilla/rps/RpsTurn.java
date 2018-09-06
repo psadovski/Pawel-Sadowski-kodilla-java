@@ -23,4 +23,8 @@ public enum RpsTurn {
     public String getMove() {
         return move;
     }
+
+    public static boolean isRegular(RpsTurn turn) {
+        return turn == RpsTurn.PAPER || turn == RpsTurn.ROCK || turn == RpsTurn.SCISSORS;
+    }
 }

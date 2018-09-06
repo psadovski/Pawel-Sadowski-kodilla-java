@@ -31,23 +31,18 @@ public class RpsGame {
 
     public void play() {
 
-        while (getRoundNumber() <= getRpsGameDefinition().getRounds()) {
+        boolean shouldContinue = true;
 
-            RpsMenu.printRoundInfo(getRoundNumber());
-            RpsRoundResult result = RpsRoundRunner.run();
+        while (getRoundNumber() <= getRpsGameDefinition().getRounds() && shouldContinue) {
+            RpsRoundRunner rpsRoundRunner = new RpsRoundRunner(getRoundNumber());
+            RpsRoundResult result = rpsRoundRunner.run();
             switch (result) {
                 case COMPUTER:
-                    RpsMenu.printComputerMoveInfo(RpsMenu.getComputerTurn());
                     this.computerPoints++;
                     break;
 
                 case USER:
-                    RpsMenu.printComputerMoveInfo(RpsMenu.getComputerTurn());
                     this.gamerPoints++;
-                    break;
-
-                case DRAW:
-                    RpsMenu.printComputerMoveInfo(RpsMenu.getComputerTurn());
                     break;
 
                 case REPLAY:
@@ -63,15 +58,15 @@ public class RpsGame {
                 case END:
                     RpsMenu.printEndGameChoice();
                     if (RpsMenu.getEndGameChoice().equals("y")) {
-                        RpsMenu.printGameSummary(getGamerPoints(), getComputerPoints());
                         RpsMenu.printEndGameInfo();
-                        System.exit(0);
+                        shouldContinue = false;
                     }
                     this.roundNumber--;
                     break;
 
                 case BAD:
                     RpsMenu.printWrongInsertionInfo();
+                    this.roundNumber--;
                     break;
             }
 
