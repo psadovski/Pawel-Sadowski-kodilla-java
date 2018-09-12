@@ -2,23 +2,19 @@ package com.kodilla.rps;
 
 public class RpsGame {
     private RpsGameDefinition rpsGameDefinition;
-    private int roundNumber;
     private int computerPoints;
     private int gamerPoints;
+    private int draws;
 
     public RpsGame(RpsGameDefinition rpsGameDefinition) {
         this.rpsGameDefinition = rpsGameDefinition;
-        this.roundNumber = 1;
         this.computerPoints = 0;
         this.gamerPoints = 0;
+        this.draws = 0;
     }
 
     public RpsGameDefinition getRpsGameDefinition() {
         return this.rpsGameDefinition;
-    }
-
-    public int getRoundNumber() {
-        return this.roundNumber;
     }
 
     public int getComputerPoints() {
@@ -29,30 +25,39 @@ public class RpsGame {
         return this.gamerPoints;
     }
 
+    public int getDraws() {
+        return this.draws;
+    }
+
     public void play() {
 
+        int roundNumber = 1;
         boolean shouldContinue = true;
 
-        while (getRoundNumber() <= getRpsGameDefinition().getRounds() && shouldContinue) {
-            RpsRoundRunner rpsRoundRunner = new RpsRoundRunner(getRoundNumber());
+        while (roundNumber <= getRpsGameDefinition().getRounds() && shouldContinue) {
+            RpsRoundRunner rpsRoundRunner = new RpsRoundRunner(roundNumber);
             RpsRoundResult result = rpsRoundRunner.run();
             switch (result) {
                 case COMPUTER:
-                    this.computerPoints++;
+                    actualizePoints(result);
                     break;
 
                 case USER:
-                    this.gamerPoints++;
+                    actualizePoints(result);
+                    break;
+
+                case DRAW:
+                    actualizePoints(result);
                     break;
 
                 case REPLAY:
                     RpsMenu.printReplayGameChoice();
                     if (RpsMenu.getReplayGameChoice().equals("y")) {
-                        RpsMenu.printGameSummary(getGamerPoints(), getComputerPoints());
+                        RpsMenu.printGameSummary(getGamerPoints(), getComputerPoints(), getDraws());
                         RpsMenu.printReplayGameInfo();
-                        this.roundNumber = 1;
+                        roundNumber = 1;
                     }
-                    this.roundNumber--;
+                    roundNumber--;
                     break;
 
                 case END:
@@ -61,18 +66,32 @@ public class RpsGame {
                         RpsMenu.printEndGameInfo();
                         shouldContinue = false;
                     }
-                    this.roundNumber--;
+                    roundNumber--;
                     break;
 
                 case BAD:
                     RpsMenu.printWrongInsertionInfo();
-                    this.roundNumber--;
+                    roundNumber--;
                     break;
             }
 
             RpsMenu.printResult(result);
-            this.roundNumber++;
+            roundNumber++;
         }
-        RpsMenu.printGameSummary(getGamerPoints(), getComputerPoints());
+        RpsMenu.printGameSummary(getGamerPoints(), getComputerPoints(), getDraws());
+    }
+
+    private void actualizePoints(RpsRoundResult result) {
+        if (result == RpsRoundResult.COMPUTER) {
+            this.computerPoints++;
+        }
+
+        if (result == RpsRoundResult.USER) {
+            this.gamerPoints++;
+        }
+
+        if (result == RpsRoundResult.DRAW) {
+            this.draws++;
+        }
     }
 }

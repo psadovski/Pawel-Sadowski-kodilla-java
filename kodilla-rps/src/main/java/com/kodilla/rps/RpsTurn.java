@@ -27,4 +27,8 @@ public enum RpsTurn {
     public static boolean isRegular(RpsTurn turn) {
         return turn == RpsTurn.PAPER || turn == RpsTurn.ROCK || turn == RpsTurn.SCISSORS;
     }
+
+    public static String getName(RpsTurn turn) {
+    return turn.name().toLowerCase();
+    }
 }

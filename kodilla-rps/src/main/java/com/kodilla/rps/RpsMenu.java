@@ -46,10 +46,11 @@ public class RpsMenu {
         }
     }
 
-    static void printGameSummary(int gamerPoints, int computerPoints) {
+    static void printGameSummary(int gamerPoints, int computerPoints, int draws) {
         System.out.println("Game summary: " +
-                            "\nGamer Points: " + gamerPoints +
-                            "\nComputer Points: " + computerPoints);
+                            "\nGamer points: " + gamerPoints +
+                            "\nComputer points: " + computerPoints +
+                            "\nDraws number: " + draws);
     }
 
     public static void printRoundInfo(int roundNumber) {
@@ -70,15 +71,7 @@ public class RpsMenu {
     }
 
     public static void printComputerMoveInfo(RpsTurn move) {
-        if (move == ROCK) {
-            System.out.println("Computer has chosen rock.");
-        }
-        if (move == PAPER) {
-            System.out.println("Computer has chosen paper.");
-        }
-        if (move == SCISSORS) {
-            System.out.println("Computer has chosen scissors.");
-        }
+        System.out.println(String.format("Computer has choosen %s.", RpsTurn.getName(move)));
     }
 
     public static void printEndGameInfo() {
