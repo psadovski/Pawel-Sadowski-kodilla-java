@@ -6,6 +6,15 @@ public class SudokuRunner {
     public static void main(String[] args) {
 
         SudokuMenu.printMenu();
-        //new SudokuGame(SudokuMenu.getGameDefinition()).play();
+        SudokuMenu.getGameDefinition();
+
+        boolean gameFinished = false;
+        while(!gameFinished) {
+
+            SudokuBoard board = new SudokuBoard();
+            SudokuMenu.printBoard(board);
+            SudokuGame theGame = new SudokuGame();
+            gameFinished = theGame.resolveSudoku();
+        }
     }
 }
