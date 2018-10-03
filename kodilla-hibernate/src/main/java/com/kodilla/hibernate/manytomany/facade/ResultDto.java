@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResultDto {
-    private List<EmployeeDto> employeeList = new ArrayList<>();
-    private List<CompanyDto> companyList = new ArrayList<>();
+    private List<EmployeeDto> employees = new ArrayList<>();
+    private List<CompanyDto> companies = new ArrayList<>();
 
-    public List<EmployeeDto> getEmployeeList() {
-        return this.employeeList;
+    public List<EmployeeDto> getEmployees() {
+        return this.employees;
     }
 
-    public List<CompanyDto> getCompanyList() {
-        return this.companyList;
+    public List<CompanyDto> getCompanies() {
+        return this.companies;
     }
 
-    public void setEmployeeList(List<EmployeeDto> employeeList) {
-        this.employeeList = employeeList;
+    public void setEmployees(List<EmployeeDto> employees) {
+        this.employees = employees;
     }
 
-    public void setCompanyList(List<CompanyDto> companyList) {
-        this.companyList = companyList;
+    public void setCompanies(List<CompanyDto> companies) {
+        this.companies = companies;
     }
 }

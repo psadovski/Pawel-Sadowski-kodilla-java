@@ -48,8 +48,8 @@ public class SearchFacadeTestSuite {
         }
 
         //Then
-        Assert.assertEquals(1, result.getEmployeeList().size());
-        Assert.assertEquals(0, result.getCompanyList().size());
+        Assert.assertEquals(1, result.getEmployees().size());
+        Assert.assertEquals(0, result.getCompanies().size());
 
         //CleanUp
         try {
