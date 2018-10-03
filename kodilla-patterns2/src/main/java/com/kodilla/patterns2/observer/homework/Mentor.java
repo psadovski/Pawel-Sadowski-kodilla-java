@@ -25,7 +25,7 @@ public class Mentor implements Observer {
     public int getUpdateCount() {
         return taskCount;
     }
-    
+
     private String task(long size) {
         return size == 1 ? "task" : "tasks";
     }
