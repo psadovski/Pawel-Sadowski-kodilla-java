@@ -1,12 +1,11 @@
 package com.kodilla.sudoku;
 
-import static com.kodilla.sudoku.SudokuGameMove.BAD;
-import static com.kodilla.sudoku.SudokuGameMove.END;
-import static com.kodilla.sudoku.SudokuGameMove.SUDOKU;
+import static com.kodilla.sudoku.SudokuMenu.getUserTurn;
 
 public class SudokuGame {
     public boolean resolveSudoku() {
 
+        SudokuGameMove move = getUserTurn();
         switch (move) {
             case SUDOKU:
                 //solveSudoku();

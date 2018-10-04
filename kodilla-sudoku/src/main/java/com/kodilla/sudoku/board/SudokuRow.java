@@ -7,9 +7,11 @@ import java.util.List;
 
 @Getter
 public class SudokuRow {
-    private final List<SudokuElement> elements;
+    private final List<SudokuElement> elements = new ArrayList<>();
 
     public SudokuRow() {
-        this.elements = new ArrayList<>();
+        for (int n = 0; n < 9; n++) {
+            this.elements.add(new SudokuElement());
+        }
     }
 }

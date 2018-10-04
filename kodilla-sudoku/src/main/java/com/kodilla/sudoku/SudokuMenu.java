@@ -23,6 +23,13 @@ public class SudokuMenu {
         return new SudokuGameDefinition(name);
     }
 
+    public static SudokuGameMove getUserTurn() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please insert your move: :");
+        String input = scanner.next();
+        return SudokuGameMove.getMove(input);
+    }
+
     static String printBoard(SudokuBoard board) {
         return board.toString();
     }
