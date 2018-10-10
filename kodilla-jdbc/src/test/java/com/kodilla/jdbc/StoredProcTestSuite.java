@@ -35,8 +35,11 @@ public class StoredProcTestSuite {
     public void testUpdateBestsellers() throws SQLException {
         //Given
         DbManager dbManager = DbManager.getInstance();
-        String sqlUpdate = "UPDATE BOOKS SET BESTSELLER = -1";
+        String sqlCheck = "SELECT COUNT(*) AS HOW_MANY FROM BOOKS WHERE BESTSELLER = 1";
         Statement statement = dbManager.getConnection().createStatement();
+        statement.executeQuery(sqlCheck);
+        int howMany = 3;
+        String sqlUpdate = "UPDATE BOOKS SET BESTSELLER = 0";
         statement.executeUpdate(sqlUpdate);
 
         //When
@@ -44,12 +47,12 @@ public class StoredProcTestSuite {
         statement.execute(sqlProcedureCall);
 
         //Then
-        String sqlCheckTable = "SELECT COUNT(*) AS HOW_MANY FROM BOOKS WHERE BESTSELLER = -1";
-        ResultSet result = statement.executeQuery(sqlCheckTable);
-        int howMany = -1;
-        if (result.next()) {
-            howMany = result.getInt("HOW_MANY");
+        int result = 0;
+        String sqlCheckTable = "SELECT COUNT(*) AS HOW_MANY FROM BOOKS WHERE BESTSELLER = 1";
+        ResultSet resultSet = statement.executeQuery(sqlCheckTable);
+        if (resultSet.next()) {
+            result = resultSet.getInt("HOW_MANY");
         }
-        assertEquals(0, howMany);
+        assertEquals(howMany, result);
     }
 }
