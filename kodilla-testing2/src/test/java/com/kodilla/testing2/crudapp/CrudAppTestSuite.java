@@ -27,7 +27,7 @@ public class CrudAppTestSuite {
     }
 
     @After
-    public void cleanUpAfterTest() {
+    public void after() {
         driver.close();
     }
 
@@ -101,7 +101,7 @@ public class CrudAppTestSuite {
         return result;
     }
 
-    private void deleteTaskFromCrudApp(String taskName) throws InterruptedException {
+    private void cleanUp(String taskName) throws InterruptedException {
         final String XPATH_DELETE_BUTTON = ".//div[(@class=\"datatable__row-section-wrapper\")]//button[4]";
 
         driver.navigate().refresh();
@@ -117,7 +117,6 @@ public class CrudAppTestSuite {
                             theForm.findElement(By.xpath(XPATH_DELETE_BUTTON));
                     buttonDelete.click();
                 });
-        Thread.sleep(5000);
     }
 
     @Test
@@ -125,6 +124,6 @@ public class CrudAppTestSuite {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
-        deleteTaskFromCrudApp(taskName);
+        cleanUp(taskName);
     }
 }
